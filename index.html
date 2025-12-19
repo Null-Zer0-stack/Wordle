@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <title>Wordle - RobCo Terminal Hacking</title>
-  <link rel="stylesheet" href="style.css">  
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="terminal">
-    <div class="header">
-      ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL<br>
-      WARNING: LOCKOUT IMMINENT
+
+    <!-- Boot Screen -->
+    <div class="content">
+      <div class="boot" id="boot"></div>
     </div>
 
-    <div class="attempts">Attempts left: <span id="attempts">4</span></div>
+    <!-- Main Terminal -->
+    <div class="content" id="content" style="display:none">
 
-    <div class="screen">
-      <div class="column" id="col1"></div>
-      <div class="column" id="col2"></div>
+      <div class="disclaimer">
+        This project is not affiliated with Bethesda Corp. All rights reserved to the owner ©
+      </div>
+
+      <div class="header">
+        ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL<br>
+        WARNING: LOCKOUT IMMINENT
+      </div>
+
+      <button id="restartBtn">RESTART TERMINAL</button>
+
+      <div class="attempts">Attempts left: <span id="attempts">4</span></div>
+
+      <div class="screen" id="screen"></div>
+      <div class="log" id="log"></div>
+
     </div>
-
-    <div class="log" id="log"></div>
   </div>
 
-  <script src="script.js">
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

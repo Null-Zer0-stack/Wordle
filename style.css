@@ -1,54 +1,152 @@
-    body {
-      background: #0a0f0c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: "Courier New", monospace;
-      color: #3aff7a;
-    }
+body {
+background: #0a0f0c;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+font-family: "Courier New", monospace;
+color: #3aff7a;
+}
 
-    .terminal {
-      width: 700px;
-      background: #081b12;
-      border: 8px solid #1f3d2b;
-      padding: 20px;
-      box-shadow: 0 0 40px rgba(58, 255, 122, 0.3);
-    }
 
-    .header {
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
+.terminal {
+width: 820px;
+background: #081b12;
+border: 8px solid #1f3d2b;
+padding: 20px;
+box-shadow: 0 0 40px rgba(58, 255, 122, 0.35);
+}
 
-    .attempts {
-      margin-bottom: 15px;
-    }
 
-    .screen {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+.header { font-size: 14px; margin-bottom: 10px; }
+.attempts { margin-bottom: 15px; }
 
-    .column {
-      white-space: pre;
-      line-height: 1.4;
-    }
 
-    .word {
-      cursor: pointer;
-    }
+.screen {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
+body {
+  background: #0a0f0c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Courier New", monospace;
+  color: #3aff7a;
+}
 
-    .word:hover {
-      background: rgba(58, 255, 122, 0.2);
-    }
+/* ---------------- TERMINAL ---------------- */
+.terminal {
+  width: 860px;
+  background: #081b12;
+  border: 8px solid #1f3d2b;
+  padding: 20px;
+  box-shadow: 0 0 40px rgba(58, 255, 122, 0.35);
+  position: relative;
+  overflow: hidden;
+}
 
-    .log {
-      margin-top: 15px;
-      min-height: 60px;
-    }
+/* ---------------- CRT EFFECT ---------------- */
+.terminal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.25) 0px,
+    rgba(0,0,0,0.25) 1px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,0) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
 
-    .locked {
-      color: red;
-    }
+.terminal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(58,255,122,0.05);
+  animation: flicker 0.15s infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+  100% { opacity: 0.18; }
+}
+
+/* ---------------- CONTENT ---------------- */
+.content { position: relative; z-index: 4; }
+
+.header { font-size: 14px; margin-bottom: 10px; }
+.attempts { margin-bottom: 15px; }
+
+.disclaimer {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+button {
+  background: none;
+  border: 1px solid #3aff7a;
+  color: #3aff7a;
+  font-family: inherit;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.screen {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.addr {
+  color: #2fdc6f;
+  opacity: 0.85;
+}
+
+.entry {
+  cursor: pointer;
+  padding: 2px 4px;
+  white-space: pre;
+}
+
+.entry:hover {
+  background: rgba(58, 255, 122, 0.25);
+}
+
+.log { margin-top: 15px; min-height: 70px; }
+.locked { color: red; }
+
+.boot {
+  white-space: pre;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.column { white-space: pre; line-height: 1.4; }
+
+
+.entry {
+cursor: pointer;
+padding: 2px 4px;
+}
+
+
+.entry:hover {
+background: rgba(58, 255, 122, 0.25);
+}
+
+
+.log { margin-top: 15px; min-height: 70px; }
+.locked { color: red; }
